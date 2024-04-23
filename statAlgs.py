@@ -114,7 +114,7 @@ def OLS(xDf, eq):
     b = np.linalg.inv(x.T @ x) @ x.T @ y
     #print("!!!")
     #print(y)
-    #print(b)
+    print(b)
     #print(x.shape)
     #calculate r^2 - first find residuals and ybar
     yhat = x @ b
@@ -147,7 +147,7 @@ prcomp(x)
 x = pd.DataFrame(np.random.randint(0,100,size = (100, 5)), columns=['x1', 'x2', 'x3', 'x4', 'y'])
 np.random.seed(12)
 x_var = pd.DataFrame(np.random.uniform(low=-10, high=10, size=(100,4)), columns=['x1', 'x2', 'x3', 'x4'])
-y_var = pd.DataFrame(x_var.iloc[:,0] + x_var.iloc[:,1] + x_var.iloc[:,2] + x_var.iloc[:,3] + 9 + np.random.normal(scale=100,size=100), columns=['y'])
+y_var = pd.DataFrame(x_var.iloc[:,0] + x_var.iloc[:,1] + x_var.iloc[:,2] + x_var.iloc[:,3] + 9 + np.random.normal(scale=10,size=100), columns=['y'])
 x = pd.concat([y_var, x_var], axis=1)
 #print(x)
 OLS(x,'y~x1+x2+x3+x4')
